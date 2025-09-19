@@ -6,7 +6,7 @@ from os import path
 #SOURCE_FILE = f'glove_100k.csv'
 #WRITE_FILE = f'glove_100k_female_male_effect_sizes.csv'
 
-SOURCE_DIR = f'D:\\glove_fasttext\\crawl-300d-2M.vec'
+SOURCE_DIR = f'D:\\fast_text'
 SOURCE_FILE = f'ft_100k_p1k.csv'
 WRITE_FILE = f'ft_100k_female_male_ratios.csv'
 
