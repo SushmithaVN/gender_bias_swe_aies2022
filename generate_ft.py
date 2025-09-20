@@ -5,9 +5,15 @@ from os import path
 import csv
 
 # ==== CONFIG ====
+# EMB_DIR = r"D:\fast_text"
+# EMB_FILE = "cc.kn.300.vec"
+# OUTPUT_FILE = "word_level_bias_scores_Kannada.csv"   # this is what your other script expects
+# PERMUTATIONS = 1000               # keep small for testing, can increase later
+# TOP_N = 100000                    # keep 1000 for quick run, change to 100000 later
+
 EMB_DIR = r"D:\fast_text"
-EMB_FILE = "crawl-300d-2M.vec"
-OUTPUT_FILE = "ft_100k_p1k.csv"   # this is what your other script expects
+EMB_FILE = "cc.ta.300.vec"
+OUTPUT_FILE = "word_level_bias_scores_Tamil.csv"   # this is what your other script expects
 PERMUTATIONS = 1000               # keep small for testing, can increase later
 TOP_N = 100000                    # keep 1000 for quick run, change to 100000 later
 
@@ -46,8 +52,15 @@ embedding_df = pd.read_csv(
 print("Embeddings loaded.")
 
 # ==== Gender attribute words ====
-female_stimuli = ["female", "woman", "girl", "sister", "she", "her", "hers", "daughter"]
-male_stimuli   = ["male", "man", "boy", "brother", "he", "him", "his", "son"]
+
+# Kannada
+female_stimuli = ["ಹೆಣ್ಣು", "ಮಹಿಳೆ", "ಹುಡುಗಿ", "ತಂಗಿ", "ಅವಳು", "ಅವಳಿಗೆ", "ಅವಳದು", "ಮಗಳು"]
+male_stimuli   = ["ಗಂಡು", "ಪುರುಷ", "ಹುಡುಗ", "ಅಣ್ಣ", "ಅವನು", "ಅವನಿಗೆ", "ಅವನದು", "ಮಗ"]
+
+# Tamil
+female_stimuli = ["பெண்", "பெண்மணி", "பெண்ணு", "சகோதரி", "அவள்", "அவளை", "அவளுடைய", "மகள்"]
+male_stimuli   = ["ஆண்", "ஆண்மணி", "ஆண்பிள்ளை", "சகோதரன்", "அவன்", "அவனை", "அவனுடைய", "மகன்"]
+
 
 female_embs = embedding_df.loc[female_stimuli].to_numpy()
 male_embs   = embedding_df.loc[male_stimuli].to_numpy()

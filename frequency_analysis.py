@@ -2,13 +2,16 @@ import numpy as np
 import pandas as pd
 from os import path
 
-#SOURCE_DIR = f'D:\\glove_fasttext\\glove.840B.300d'
-#SOURCE_FILE = f'glove_100k.csv'
-#WRITE_FILE = f'glove_100k_female_male_effect_sizes.csv'
 
+# For kannada
+# SOURCE_DIR = f'D:\\fast_text'
+# SOURCE_FILE = f'word_level_bias_scores_Kannada.csv'
+# WRITE_FILE = f'bias_frequency_ratios_Kannada.csv'
+
+# For Tamil
 SOURCE_DIR = f'D:\\fast_text'
-SOURCE_FILE = f'ft_100k_p1k.csv'
-WRITE_FILE = f'ft_100k_female_male_ratios.csv'
+SOURCE_FILE = f'word_level_bias_scores_Tamil.csv'
+WRITE_FILE = f'bias_frequency_ratios_Tamil.csv'
 
 #Read in file of associations for top 100k words
 source_df = pd.read_csv(path.join(SOURCE_DIR,SOURCE_FILE), na_values=None, keep_default_na=False)
