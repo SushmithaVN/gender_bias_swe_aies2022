@@ -5,13 +5,34 @@ from os import path
 
 # For kannada
 # SOURCE_DIR = f'D:\\fast_text'
-# SOURCE_FILE = f'word_level_bias_scores_Kannada.csv'
-# WRITE_FILE = f'bias_frequency_ratios_Kannada.csv'
+# SOURCE_FILE = f'word_level_bias_scores_Kannada1.csv'
+# WRITE_FILE = f'bias_frequency_ratios_Kannada1.csv'
 
 # For Tamil
+# SOURCE_DIR = f'D:\\fast_text'
+# SOURCE_FILE = f'word_level_bias_scores_Tamil.csv'
+# WRITE_FILE = f'bias_frequency_ratios_Tamil.csv'
+
+# For Malayalam
+# SOURCE_DIR = f'D:\\fast_text'
+# SOURCE_FILE = f'word_level_bias_scores_Malayalam.csv'
+# WRITE_FILE = f'bias_frequency_ratios_Malayalam.csv'
+
+# For Telugu
 SOURCE_DIR = f'D:\\fast_text'
-SOURCE_FILE = f'word_level_bias_scores_Tamil.csv'
-WRITE_FILE = f'bias_frequency_ratios_Tamil.csv'
+SOURCE_FILE = f'word_level_bias_scores_Telugu.csv'
+WRITE_FILE = f'bias_frequency_ratios_Telugu.csv'
+
+# For Hindi
+# SOURCE_DIR = f'D:\\fast_text'
+# SOURCE_FILE = f'word_level_bias_scores_Hindi1.csv'
+# WRITE_FILE = f'bias_frequency_ratios_Hindi1.csv'
+
+# For Bengali
+# SOURCE_DIR = f'D:\\fast_text'
+# SOURCE_FILE = f'word_level_bias_scores_Bengali.csv'
+# WRITE_FILE = f'bias_frequency_ratios_Bengali.csv'
+
 
 #Read in file of associations for top 100k words
 source_df = pd.read_csv(path.join(SOURCE_DIR,SOURCE_FILE), na_values=None, keep_default_na=False)

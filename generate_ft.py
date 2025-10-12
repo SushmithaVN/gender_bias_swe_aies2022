@@ -5,17 +5,54 @@ from os import path
 import csv
 
 # ==== CONFIG ====
+
+# For Kannada
 # EMB_DIR = r"D:\fast_text"
 # EMB_FILE = "cc.kn.300.vec"
-# OUTPUT_FILE = "word_level_bias_scores_Kannada.csv"   # this is what your other script expects
+# OUTPUT_FILE = "word_level_bias_scores_Kannada1.csv"   # this is what your other script expects
 # PERMUTATIONS = 1000               # keep small for testing, can increase later
 # TOP_N = 100000                    # keep 1000 for quick run, change to 100000 later
 
+
+# For Tamil
+# EMB_DIR = r"D:\fast_text"
+# EMB_FILE = "cc.ta.300.vec"
+# OUTPUT_FILE = "word_level_bias_scores_Tamil.csv"   # this is what your other script expects
+# PERMUTATIONS = 1000               # keep small for testing, can increase later
+# TOP_N = 100000                    # keep 1000 for quick run, change to 100000 later
+
+
+# For Malayalam
+# EMB_DIR = r"D:\fast_text"
+# EMB_FILE = "cc.ml.300.vec"
+# OUTPUT_FILE = "word_level_bias_scores_Malayalam.csv"
+# PERMUTATIONS = 1000               # keep small for testing, can increase later
+# TOP_N = 100000                    # keep 1000 for quick run, change to
+
+
+# For Telugu
 EMB_DIR = r"D:\fast_text"
-EMB_FILE = "cc.ta.300.vec"
-OUTPUT_FILE = "word_level_bias_scores_Tamil.csv"   # this is what your other script expects
+EMB_FILE = "cc.te.300.vec"    
+OUTPUT_FILE = "word_level_bias_scores_Telugu.csv"
 PERMUTATIONS = 1000               # keep small for testing, can increase later
-TOP_N = 100000                    # keep 1000 for quick run, change to 100000 later
+TOP_N = 100000                    # keep 1000 for quick run, change to
+
+
+# For hindi
+# EMB_DIR = r"D:\fast_text"
+# EMB_FILE = "cc.hi.300.vec"
+# OUTPUT_FILE = "word_level_bias_scores_Hindi1.csv"
+# PERMUTATIONS = 1000               # keep small for testing, can increase later
+# TOP_N = 100000                    # keep 1000 for quick run, change to
+
+
+# For bengali
+# EMB_DIR = r"D:\fast_text"
+# EMB_FILE = "cc.bn.300.vec"
+# OUTPUT_FILE = "word_level_bias_scores_Bengali.csv"
+# PERMUTATIONS = 1000               # keep small for testing, can increase later
+# TOP_N = 100000                    # keep 1000 for quick run, change to
+
 
 # ==== SC-WEAT function ====
 def SC_WEAT(w, A, B, permutations=PERMUTATIONS):
@@ -51,6 +88,7 @@ embedding_df = pd.read_csv(
 )
 print("Embeddings loaded.")
 
+
 # ==== Gender attribute words ====
 
 # Kannada
@@ -58,8 +96,24 @@ print("Embeddings loaded.")
 # male_stimuli   = ["ಗಂಡು", "ಪುರುಷ", "ಹುಡುಗ", "ಅಣ್ಣ", "ಅವನು", "ಅವನಿಗೆ", "ಅವನದು", "ಮಗ"]
 
 # Tamil
-female_stimuli = ["பெண்", "பெண்மணி", "பெண்ணு", "சகோதரி", "அவள்", "அவளை", "அவளுடைய", "மகள்"]
-male_stimuli   = ["ஆண்", "ஆண்மணி", "ஆண்பிள்ளை", "சகோதரன்", "அவன்", "அவனை", "அவனுடைய", "மகன்"]
+# female_stimuli = ["பெண்", "பெண்மணி", "பெண்ணு", "சகோதரி", "அவள்", "அவளை", "அவளுடைய", "மகள்"]
+# male_stimuli   = ["ஆண்", "ஆண்மணி", "ஆண்பிள்ளை", "சகோதரன்", "அவன்", "அவனை", "அவனுடைய", "மகன்"]
+
+# Malayalam
+# female_stimuli = ["സ്ത്രീ", "അവൾ", "അവളുടെ", "അവളുടേത്", "പെൺകുട്ടി", "മകൾ", "സഹോദരി", "അമ്മ"]
+# male_stimuli   = ["പുരുഷൻ", "അവൻ", "അവന്റെ", "അവന്റേത്", "ആൺകുട്ടി", "മകൻ", "സഹോദരൻ", "അച്ഛൻ"]
+
+# Telugu
+female_stimuli = ["స్త్రీ", "ఆమె", "ఆమెది", "ఆమెకు", "పాప", "కుమార్తె", "చెల్లి", "అక్క"]
+male_stimuli   = ["పురుషుడు", "అతను", "అతని", "అతనికి", "బాలుడు", "కుమారుడు", "తమ్ముడు", "అన్న"]
+
+# Hindi
+# female_stimuli = ["महिला", "वह", "उसकी", "उसका", "औरत", "लड़की", "बेटी", "बहन"]
+# male_stimuli   = ["पुरुष", "वह", "उसका", "उसकी", "आदमी", "लड़का", "बेटा", "भाई"]
+
+# Bengali
+# female_stimuli = ["মহিলা", "সে", "তার", "তাঁর", "নারী", "মেয়ে", "কন্যা", "বোন"]
+# male_stimuli   = ["পুরুষ", "সে", "তার", "তাঁর", "পুরুষ", "ছেলে", "পুত্র", "ভাই"]
 
 
 female_embs = embedding_df.loc[female_stimuli].to_numpy()
